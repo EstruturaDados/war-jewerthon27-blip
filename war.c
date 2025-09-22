@@ -18,13 +18,20 @@
 
 // --- Constantes Globais ---
 // Definem valores fixos para o número de territórios, missões e tamanho máximo de strings, facilitando a manutenção.
-
+#define MAX_TERRITORIOS 20
+#define MAX_MISSOES 10
+#define TAMANHO_STRING 50
 // --- Estrutura de Dados ---
 // Define a estrutura para um território, contendo seu nome, a cor do exército que o domina e o número de tropas.
-
+typedef struct {
+    char nome[TAMANHO_STRINGS];
+    char exercito[ TAMANHO -STRINGS];
+    int numero_tropas;
+} TERRITORIO;
 // --- Protótipos das Funções ---
 // Declarações antecipadas de todas as funções que serão usadas no programa, organizadas por categoria.
 // Funções de setup e gerenciamento de memória:
+
 // Funções de interface com o usuário:
 // Funções de lógica principal do jogo:
 // Função utilitária:
