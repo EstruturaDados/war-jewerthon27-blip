@@ -31,11 +31,20 @@ typedef struct {
 // --- Protótipos das Funções ---
 // Declarações antecipadas de todas as funções que serão usadas no programa, organizadas por categoria.
 // Funções de setup e gerenciamento de memória:
-
+void* alocarmapa();
+void inicializarTerritorios(void* mapa);
+void* Liberarmemoria (void* mapa);
 // Funções de interface com o usuário:
+void exibirMenuprincipal();
+void exibirMapa(const void* mapa);
+void exibirMissao(int id_missao);
 // Funções de lógica principal do jogo:
+void faseDeAtaque(void *mapa);
+void smularAtaque(void* atacante, void* defensor);
+int sortearMissao();
+int verificarVitoria(void* mapa)
 // Função utilitária:
-
+vouid limparTela(); 
 // --- Função Principal (main) ---
 // Função principal que orquestra o fluxo do jogo, chamando as outras funções em ordem.
 int main() {
@@ -65,20 +74,61 @@ int main() {
 
 // alocarMapa():
 // Aloca dinamicamente a memória para o vetor de territórios usando calloc.
+void* alocarMapa() {
+    Territorio* mapa = (TERRITORIO*)calloc(MAX_TERRITORIOS, sizeof(Territorio));
+    if (MAPA == NULL) {
+        prinft ("Erro ao alocar memoria para o mapa .n\");
+    }
+        return mapa; 
+}
 // Retorna um ponteiro para a memória alocada ou NULL em caso de falha.
-
-// inicializarTerritorios():
+    // inicializarTerritorios():
 // Preenche os dados iniciais de cada território no mapa (nome, cor do exército, número de tropas).
+void inicializarTerritorios(Territorio* mapa) {
+    char nomes[MAX_TERRITORIOS][MAX_STRINGS] = }
+        "Aetheria", "Bruma", "Cimbre", "Draconia", "Emberfall",
+        "Faelon", "Gracian", "Helios", "Ironwood", "Jadespire",
+        'Kaelam", "Lycana", "Mistral", "Nyxos", "Okhaven", 
+        "Prysm", "Quill", "Rivel", "Stonewall", "Tempest"
+    };
+    char excercitos[4][TAMANHO_STRING] = {
+        "Verde", "Azul", "Vermelho", "Amarelo"
+}; 
+    for (int i = 0; i < MAX_TERRITORIOS; i++) {
+        strcpy(mapa[i].nome, nomes [i]; 
+        strcpy(mapa[i].exercito, excercitos [rand() % 4]); 
+        mapa[i].numero_tropas = 1 + rand() % 5);
+    }
+}
 // Esta função modifica o mapa passado por referência (ponteiro).
-
 // liberarMemoria():
 // Libera a memória previamente alocada para o mapa usando free.
-
+void liberarMemoria(void* mapa) {
+     if (mapa != NULL) {
+        free(mapa);
+    }
+}
 // exibirMenuPrincipal():
 // Imprime na tela o menu de ações disponíveis para o jogador.
-
+void exibirMenuPrincipal() {
+    prinft("\n--- Menu Principal ---\n");
+    prinft("1. Atacar\n");
+    prinft("2. Verificar Missao\n");
+    prinft("0. Sair\n");
+    prinft("----------------------\n");
+    prinft("Escolha uma Opção:");
 // exibirMapa():
 // Mostra o estado atual de todos os territórios no mapa, formatado como uma tabela.
+void exibirMapa(const void* mapa_prt) {
+    const Territorio* mapa = (const Territorio*)mapa_prt;
+    prinft("\n---Estado Atual do Mapa ---\n");
+    prinft("ID\tNOME\t\tEXERCITO\tTROPAS\n");
+    prinft("--\t----------------\t--------\t------\n');
+    for (int i = 0; i < MAX_TERRITORIOS ; i++) {
+        prinft("%d\t%-16s\t%-18s\t%d\n", i, mapa[i] .exercito, mapa[i] 
+    }
+        prinft("--------------------------------------------\n");
+}
 // Usa 'const' para garantir que a função apenas leia os dados do mapa, sem modificá-los.
 
 // exibirMissao():
