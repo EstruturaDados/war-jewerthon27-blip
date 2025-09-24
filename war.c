@@ -77,7 +77,7 @@ int main() {
 void* alocarMapa() {
     Territorio* mapa = (TERRITORIO*)calloc(MAX_TERRITORIOS, sizeof(Territorio));
     if (MAPA == NULL) {
-        prinft ("Erro ao alocar memoria para o mapa .n\");
+        printf ("Erro ao alocar memoria para o mapa .n\");
     }
         return mapa; 
 }
@@ -88,7 +88,7 @@ void inicializarTerritorios(Territorio* mapa) {
     char nomes[MAX_TERRITORIOS][MAX_STRINGS] = }
         "Aetheria", "Bruma", "Cimbre", "Draconia", "Emberfall",
         "Faelon", "Gracian", "Helios", "Ironwood", "Jadespire",
-        'Kaelam", "Lycana", "Mistral", "Nyxos", "Okhaven", 
+        "Kaelam", "Lycana", "Mistral", "Nyxos", "Okhaven", 
         "Prysm", "Quill", "Rivel", "Stonewall", "Tempest"
     };
     char excercitos[4][TAMANHO_STRING] = {
@@ -111,31 +111,57 @@ void liberarMemoria(void* mapa) {
 // exibirMenuPrincipal():
 // Imprime na tela o menu de ações disponíveis para o jogador.
 void exibirMenuPrincipal() {
-    prinft("\n--- Menu Principal ---\n");
-    prinft("1. Atacar\n");
-    prinft("2. Verificar Missao\n");
-    prinft("0. Sair\n");
-    prinft("----------------------\n");
-    prinft("Escolha uma Opção:");
+    printf("\n--- Menu Principal ---\n");
+    printf("1. Atacar\n");
+    printf("2. Verificar Missao\n");
+    printf("0. Sair\n");
+    printf("----------------------\n");
+    printf("Escolha uma Opção:");
 // exibirMapa():
 // Mostra o estado atual de todos os territórios no mapa, formatado como uma tabela.
 void exibirMapa(const void* mapa_prt) {
     const Territorio* mapa = (const Territorio*)mapa_prt;
-    prinft("\n---Estado Atual do Mapa ---\n");
-    prinft("ID\tNOME\t\tEXERCITO\tTROPAS\n");
-    prinft("--\t----------------\t--------\t------\n');
+    printf("\n---Estado Atual do Mapa ---\n");
+    printf("ID\tNOME\t\tEXERCITO\tTROPAS\n");
+    printf("--\t----------------\t--------\t------\n');
     for (int i = 0; i < MAX_TERRITORIOS ; i++) {
         prinft("%d\t%-16s\t%-18s\t%d\n", i, mapa[i] .exercito, mapa[i] 
     }
-        prinft("--------------------------------------------\n");
+        printf("--------------------------------------------\n");
 }
 // Usa 'const' para garantir que a função apenas leia os dados do mapa, sem modificá-los.
 
 // exibirMissao():
 // Exibe a descrição da missão atual do jogador com base no ID da missão sorteada.
-
+void exibirMissao(int in_missao) {
+    printf( "\n--- Missao Atual ---\n");
+    switch (id_missao) {
+        case 1: 
+            printf("Conquite 3 territorios.\n");
+            break;
+    case 2:
+            printf("Destrua o exercito Verde.\n");
+            break;
+    case 3:
+            printf("Conquiste 1 territorio com exercito Vermelho.n\");
+            break; 
+        default:
+            printf("Nenhuma da missao atribuida.\n");
+            break;
+    }
+    printf("--------------------\n");
+}
 // faseDeAtaque():
 // Gerencia a interface para a ação de ataque, solicitando ao jogador os territórios de origem e destino.
+void faseDeAtaque(void* mapa) {
+    int origem, destino; 
+    printf("--- Fase de Ataque ---\n");
+    printf("Digite o ID do territorio de origem: ");
+    scanf("%d" , &origem);
+    printf("Digite o ID do territorio do Destino:");
+    scanf("%d", &destino);
+}
+        
 // Chama a função simularAtaque() para executar a lógica da batalha.
 
 // simularAtaque():
