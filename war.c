@@ -85,15 +85,20 @@ void* alocarMapa() {
 // Preenche os dados iniciais de cada território no mapa (nome, cor do exército, número de tropas).
 // Esta função modifica o mapa passado por referência (ponteiro).
 void inicializarTerritorios(Territorio* mapa) {
-    char nomes[MAX_TERRITORIOS][MAX_STRINGS] = }
+    char nomes[MAX_TERRITORIOS][TAMANHO_STRING] = {
         "Aetheria", "Bruma", "Cimbre", "Draconia", "Emberfall",
         "Faelon", "Gracian", "Helios", "Ironwood", "Jadespire",
-        "Kaelam", "Lycana", "Mistral", "Nyxos", "Okhaven", 
+        "Kaelum", "Lycana", "Mistral", "Myxos", "Okhaven",
         "Prysm", "Quill", "Rivel", "Stonewall", "Tempest"
     };
-    char excercitos[4][TAMANHO_STRING] = {
-        "Verde", "Azul", "Vermelho", "Amarelo"
-}; 
+
+    char exercitos[20][TAMANHO_STRING] = {
+        "Azul", "Verde", "Vermelho", "Amarelo",
+        "Roxo", "Ciano", "Magenta", "Laranja",
+        "Rosa", "Marrom", "Cinza", "Preto",
+        "Branco", "Dourado", "Prata", "Turquesa",
+        "Bronze", "Cobre", "Indigo", "Jade"
+    };
     for (int i = 0; i < MAX_TERRITORIOS; i++) {
         strcpy(mapa[i].nome, nomes [i]; 
         strcpy(mapa[i].exercito, excercitos [rand() % 4]); 
