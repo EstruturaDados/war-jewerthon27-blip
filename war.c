@@ -43,7 +43,7 @@ void exibirMissao(int id_missao);void faseDeAtaque(void *mapa);
 void smularAtaque(void* atacante, void* defensor);
 int sortearMissao();
 int verificarVitoria(void* mapa)
-vouid limparTela();
+void limparTela();
 // --- Função Principal (main) ---
 // Função principal que orquestra o fluxo do jogo, chamando as outras funções em ordem.
 int main() {
